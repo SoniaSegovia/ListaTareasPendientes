@@ -28,8 +28,12 @@ if (textInputField.value.trim().length == '')
     editarImage.src = 'editar.png';
     editarButton.appendChild(editarImage);
     todoItemContainer.appendChild(editarButton)
-
-
+    
+    editarButton.addEventListener('click', ()=>{
+        textInputField.value = todoText.innerText;
+        const parent = editarButton.parentElement;
+        parent.parentElement.removeChild(parent);
+    });
 
     const eliminarButton = document.createElement('button');
     eliminarButton.id = 'eliminar-button';
@@ -38,6 +42,11 @@ if (textInputField.value.trim().length == '')
     eliminarImage.src = 'eliminar.png';
     eliminarButton.appendChild(eliminarImage);
     todoItemContainer.appendChild(eliminarButton);
+
+    eliminarButton.addEventListener('click',()=>{
+        const parent = eliminarButton.parentElement;
+        parent.parentElement.removeChild(parent);
+    });
 
 
 
